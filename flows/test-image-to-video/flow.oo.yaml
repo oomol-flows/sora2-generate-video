@@ -1,0 +1,17 @@
+title: "Test Sora2 Image to Video"
+description: "Demonstrates image-to-video generation by animating a source image"
+nodes:
+  - node_id: sora2_img2vid#1
+    task: self::sora2-image-to-video
+    inputs_from:
+      - handle: image_url
+        value: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+      - handle: prompt
+        value: "The mountain landscape comes alive with moving clouds and sunlight
+          sweeping across the peaks"
+      - handle: resolution
+        value: "720p"
+      - handle: aspect_ratio
+        value: "16:9"
+      - handle: duration
+        value: 4

@@ -1,0 +1,11 @@
+version: 0.0.1
+scripts:
+  # Script executed when the container is first loaded
+  # eg: bootstrap: poetry add pandas
+  bootstrap: |
+    npm install
+    poetry install --no-root
+name: sora2-generate-video
+displayName: "%sora2-video-generator%"
+description: "%transform-your-ideas-into-stunning-videos-with-ai-powered-tools%"
+repository: https://github.com/oomol-flows/sora2-generate-video

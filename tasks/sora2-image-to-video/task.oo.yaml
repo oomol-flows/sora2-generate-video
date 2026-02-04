@@ -1,0 +1,132 @@
+inputs_def:
+  - handle: image_url
+    json_schema:
+      type: string
+    description: "Web URL of the source image to animate"
+    nullable: false
+
+  - handle: prompt
+    json_schema:
+      type: string
+      ui:widget: text
+    description: "Text description of how the image should animate"
+    nullable: false
+
+  - group: Video Settings
+    collapsed: true
+
+  - handle: resolution
+    json_schema:
+      enum:
+        - auto
+        - 720p
+        - 1080p
+      ui:options:
+        labels:
+          - Auto
+          - 720p
+          - 1080p
+    description: "Output video resolution (auto matches source image)"
+    value: auto
+    nullable: true
+
+  - handle: aspect_ratio
+    json_schema:
+      enum:
+        - auto
+        - "9:16"
+        - "16:9"
+      ui:options:
+        labels:
+          - Auto
+          - "9:16 (Portrait)"
+          - "16:9 (Landscape)"
+    description: "Video aspect ratio (auto matches source image)"
+    value: auto
+    nullable: true
+
+  - handle: duration
+    json_schema:
+      enum:
+        - 4
+        - 8
+        - 12
+      ui:options:
+        labels:
+          - 4 seconds
+          - 8 seconds
+          - 12 seconds
+    description: "Video length in seconds (4, 8, or 12)"
+    value: 4
+    nullable: true
+
+outputs_def:
+  - handle: video_url
+    description: "Web URL of the generated video"
+    json_schema:
+      type: string
+    nullable: false
+
+  - handle: video_path
+    description: "Local file path to the downloaded video"
+    json_schema:
+      type: string
+    nullable: false
+
+  - group: Video Information
+    collapsed: true
+
+  - handle: video_id
+    description: "Unique identifier for the generated video"
+    json_schema:
+      type: string
+    nullable: false
+
+  - handle: width
+    description: "Video width in pixels"
+    json_schema:
+      type: number
+    nullable: false
+
+  - handle: height
+    description: "Video height in pixels"
+    json_schema:
+      type: number
+    nullable: false
+
+  - handle: fps
+    description: "Frames per second"
+    json_schema:
+      type: number
+    nullable: false
+
+  - handle: actual_duration
+    description: "Actual video duration in seconds"
+    json_schema:
+      type: number
+    nullable: false
+
+  - handle: num_frames
+    description: "Total number of frames"
+    json_schema:
+      type: number
+    nullable: false
+
+  - group: Additional Media
+    collapsed: true
+
+  - handle: thumbnail_url
+    description: "Web URL of the video thumbnail preview"
+    json_schema:
+      type: string
+    nullable: false
+
+executor:
+  name: nodejs
+  options:
+    entry: index.ts
+    spawn: false
+
+title: "Sora2 Image to Video"
+icon: ":carbon:video:"
+description: "Animates still images into videos using the Sora2 AI model"

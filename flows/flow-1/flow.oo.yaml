@@ -1,0 +1,14 @@
+title: "Test Sora2 Text to Video"
+description: "Demonstrates text-to-video generation by creating a video from a text prompt"
+nodes:
+  - node_id: sora2#1
+    task: self::sora2-text-to-video
+    inputs_from:
+      - handle: prompt
+        value: "A serene sunset over a calm ocean with gentle waves, cinematic shot"
+      - handle: resolution
+        value: "720p"
+      - handle: aspect_ratio
+        value: "16:9"
+      - handle: duration
+        value: 4
