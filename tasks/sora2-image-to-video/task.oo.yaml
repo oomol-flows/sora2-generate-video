@@ -1,21 +1,23 @@
 inputs_def:
   - handle: image_url
+    description: Web URL of the source image to animate
     json_schema:
       type: string
-    description: "Web URL of the source image to animate"
+      format: uri
     nullable: false
 
   - handle: prompt
+    description: Text description of how the image should animate
     json_schema:
       type: string
       ui:widget: text
-    description: "Text description of how the image should animate"
     nullable: false
 
   - group: Video Settings
     collapsed: true
 
   - handle: resolution
+    description: Output video resolution (auto matches source image)
     json_schema:
       enum:
         - auto
@@ -26,26 +28,26 @@ inputs_def:
           - Auto
           - 720p
           - 1080p
-    description: "Output video resolution (auto matches source image)"
     value: auto
     nullable: true
 
   - handle: aspect_ratio
+    description: Video aspect ratio (auto matches source image)
     json_schema:
       enum:
         - auto
-        - "9:16"
-        - "16:9"
+        - 9:16
+        - 16:9
       ui:options:
         labels:
           - Auto
-          - "9:16 (Portrait)"
-          - "16:9 (Landscape)"
-    description: "Video aspect ratio (auto matches source image)"
+          - 9:16 (Portrait)
+          - 16:9 (Landscape)
     value: auto
     nullable: true
 
   - handle: duration
+    description: Video length in seconds (4, 8, or 12)
     json_schema:
       enum:
         - 4
@@ -56,7 +58,6 @@ inputs_def:
           - 4 seconds
           - 8 seconds
           - 12 seconds
-    description: "Video length in seconds (4, 8, or 12)"
     value: 4
     nullable: true
 
@@ -65,6 +66,7 @@ outputs_def:
     description: "Web URL of the generated video"
     json_schema:
       type: string
+      format: uri
     nullable: false
 
   - handle: video_path

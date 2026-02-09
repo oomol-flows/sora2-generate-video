@@ -55,6 +55,7 @@ outputs_def:
     description: "Web URL of the generated video"
     json_schema:
       type: string
+      format: uri
     nullable: false
 
   - handle: video_path
